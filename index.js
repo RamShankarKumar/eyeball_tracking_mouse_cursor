@@ -1,0 +1,36 @@
+let eyes = document.querySelectorAll(".eye");
+console.log(eyes)
+let eyeRect = eyes[0].getBoundingClientRect();
+
+let container = document.querySelector(".eyesContainer");
+let containerRect = container.getBoundingClientRect();
+
+document.body.addEventListener("mousemove", eyesFollow);
+
+function eyesFollow(e){
+    // console.log("Mouse moving!");
+    requestAnimationFrame( () => {
+        let xPos = e.pageX;
+        let yPos = e.pageY;
+
+        let xDiff = (eyeRect.x + eyeRect.width / 2) - xPos; // difference between mouse position and eye element position for x axis.
+        let yDiff = (eyeRect.y + eyeRect.height / 2) - yPos; // difference between mouse position and eye element position for y axis.
+
+        let angle = Math.atan2(yDiff, xDiff); // finding radian angle between mouse position and eye position 
+
+        let degree = angle * 180 / Math.PI; // converting radian to degree
+        // console.log(degree);
+
+        container.style.setProperty("--eyeAngle", degree.toFixed(2) + "deg");
+
+        // tilting the face relative to mouse cursur!!
+        let mouseXRelativeToContainer = xPos - containerRect.x - containerRect.width / 2;
+        let mouseYRelativeToContainer = yPos - containerRect.y - containerRect.height / 2;
+
+        let containerXAngle = 60 * (mouseXRelativeToContainer / window.innerWidth) // value between 0 and 1
+        let containerYAngle = -1 * 60 * (mouseYRelativeToContainer / window.innerHeight) // -1 because cartesian coordinates and rotation in the browser is a little bit different how you might think in the real world.
+
+        container.style.setProperty("--xAngle", containerXAngle.toFixed(2) + "deg")
+        container.style.setProperty("--yAngle", containerYAngle.toFixed(2) + "deg")
+    });
+}
