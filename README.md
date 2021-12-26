@@ -4,6 +4,10 @@ This was a very fun project to do as I leaned a lot of new things in JavaScript 
 
 
 # What did I learn from this project ?
-1. *atan2()* function -> With help of this function Finding angle between two DOM element in JavaScript with help of basic trignometric concept.
-2. *requestAnimationFrame()* function for smooth animation. I have to learn more about this function so that I can use this in more usecase.
-3. Setting CSS property dynamically using JavaScript variables.
+1. *getBoundingClientRect()* --> This method returns a "DOMRect" object providing information about the size of an element and its position relative to the viewport. This is the one function that inspired me to create this project.
+2. *atan2()* function -> With help of this function we find angle between two DOM element in JavaScript with help of basic trignometric concept.
+3. *requestAnimationFrame()* function for smooth animation. I have to learn more about this function so that I can put this in more usecases.
+4. Setting CSS property dynamically using JavaScript variables.
+
+# Try it here
+https://ramshankarkumar.github.io/eyeball_tracking_mouse_cursor/
