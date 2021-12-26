@@ -1,6 +1,8 @@
 let eyes = document.querySelectorAll(".eye");
 console.log(eyes)
-let eyeRect = eyes[0].getBoundingClientRect();
+let eyeRect = eyes[0].getBoundingClientRect(); // we are taking just one eye that does not mean only one eye will rotate. We are taking just one as angle between eye and mouse curser for both the eyes will be same at any point as both the eyes height and width are same. We have set the property of class using javascript for CSS to capture both eyes at onces.
+
+console.log(eyeRect);
 
 let container = document.querySelector(".eyesContainer");
 let containerRect = container.getBoundingClientRect();
@@ -13,8 +15,12 @@ function eyesFollow(e){
         let xPos = e.pageX;
         let yPos = e.pageY;
 
-        let xDiff = (eyeRect.x + eyeRect.width / 2) - xPos; // difference between mouse position and eye element position for x axis.
-        let yDiff = (eyeRect.y + eyeRect.height / 2) - yPos; // difference between mouse position and eye element position for y axis.
+        let elementCenterX = eyeRect.width / 2; // half of element on x axis to get center
+        let elementCenterY = eyeRect.height / 2; // half of element on y axis to get center
+
+
+        let xDiff = (eyeRect.x + elementCenterX) - xPos; // difference between mouse position and eye element position for x axis.
+        let yDiff = (eyeRect.y + elementCenterY) - yPos; // difference between mouse position and eye element position for y axis.
 
         let angle = Math.atan2(yDiff, xDiff); // finding radian angle between mouse position and eye position 
 
