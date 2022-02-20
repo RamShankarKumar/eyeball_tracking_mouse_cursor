@@ -1,3 +1,4 @@
+//grab the eyes DOMNode
 let eyes = document.querySelectorAll(".eye");
 console.log(eyes)
 let eyeRect = eyes[0].getBoundingClientRect(); // we are taking just one eye that does not mean only one eye will rotate. We are taking just one as angle between eye and mouse curser for both the eyes will be same at any point as both the eyes height and width are same. We have set the property of class using javascript for CSS to capture both eyes at onces.
